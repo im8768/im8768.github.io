@@ -6,9 +6,9 @@ categories: test update
 
 `사진` 올리기
 
-
-![KakaoTalk_20190309_194307036](https://user-images.githubusercontent.com/34255526/54086774-d685fb80-438f-11e9-9dc4-26bfd5982afd.jpg)
-
+<div>
+<img width="200" src="https://user-images.githubusercontent.com/34255526/54086774-d685fb80-438f-11e9-9dc4-26bfd5982afd.jpg">
+</div>
 
 [여기][blog-docs]서 가져왔다
 
