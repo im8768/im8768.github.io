@@ -1,7 +1,7 @@
 ---
 title: "사진 올리기"
 date: 2019-03-10 23:58:28 -0400
-categories: test update
+categories: posts
 ---
 
 `사진` 올리기
