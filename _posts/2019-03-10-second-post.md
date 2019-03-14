@@ -18,4 +18,6 @@ categories: posts
 
 <embed src="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf" type="application/pdf" width="600px" height="600px"/>
 
+<iframe src="http://docs.google.com/gview?url=http://ggotji.com/spon.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
+
 
