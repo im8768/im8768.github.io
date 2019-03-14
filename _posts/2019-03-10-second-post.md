@@ -18,3 +18,11 @@ categories: posts
 <object type="application/pdf" data="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf" width="400">
   <param name="src" value="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf">
   </object>
+
+<embed src="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="600px" />
+
+
+
+<embed src="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf" type="application/pdf" width="100%" height="600px"/>
+
+
