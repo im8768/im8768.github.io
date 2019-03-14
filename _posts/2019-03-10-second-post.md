@@ -15,8 +15,6 @@ categories: posts
 [blog-docs]: https://hanee24.github.io/2017/12/21/how-to-upload-image-with-github-readme/
 
 
-<body>
-  <iframe style="width:600";height:1000;"                                         src="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf">
-  </iframe>
-</body>
-                                                                                                                   
+<object type="application/pdf" data="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf" width="400">
+  <param name="src" value="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf">
+  </object>
