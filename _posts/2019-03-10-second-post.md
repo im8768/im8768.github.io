@@ -13,3 +13,7 @@ categories: posts
 [여기][blog-docs]서 가져왔다
 
 [blog-docs]: https://hanee24.github.io/2017/12/21/how-to-upload-image-with-github-readme/
+
+<object type="application/pdf" data="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf" width="100%" height="100%">
+<param name="src" value="https://github.com/im8768/im8768.github.io/files/2967056/default.pdf">
+</object>
