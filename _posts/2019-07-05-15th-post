@@ -1,0 +1,120 @@
+
+
+1. AOSP 빌드 준비하기 : AOPS를 빌드 하기 위해서 빌드환경을 먼저 설정한다.
+
+(1)$ apt-get install openjdk-7-jdk 를 설치한다.
+```
+//없다고 나올 시
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install
+```
+
+2. repo를 설치한다.
+```
+$ mkdir ~/bin
+$ PATH=~/bin:$PATH    //환경변수등록
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+//curl이 없을시 "$ sudo apt-get install curl"
+$ chmod a+x ~/bin/repo       //repo파일 권한 변경
+```
+
+3. repo를 사용하기 위해서는 git을 설치해야 한다.
+```
+$ sudo app-get install git
+```
+
+4. AOSP 소스 받기
+```
+//저장할 폴더를 만든다. 여기서는 6.0 설치를 위해 6.0이라 명명
+$ mkdir –p ~/android/aosp-6.0        
+$ cd ~/android/aops-6.0 //폴더로 이동
+
+//git 설정해주기
+git config —global user.name “Your Name”
+git config —global user.email “You@example.com”
+
+//메니페스트 파일을 받는다.
+$ repo init -u https://android.googlesource.com/platform/manifest
+$ repo init -u https://android.googlesource.com/platform/manifest -b android-6.0.1_r80   //원하는 버전으로 브렌치 이동
+
+
+
+$ repo sync      //AOSP 소스를 받아온다.
+```
+
+- AOSP 빌드
+
+1. 현재 존재하는 output들을 삭제한다.
+$ make clobber
+
+2. 환경 설정을 한다.
+$ source build/envsetup.sh
+
+3. 타겟을 고른다.
+$ lunch aosp_arm-eng
+
+> 만약 lunch 에 인자를 넣지 않을경우 타겟을 선택할수 있다.
+
+4. 빌드하기 위한 프로그램 설치
+
+$ sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-dev g++-multilib
+
+5. mk파일 수정하기
+
+-AOSP빌드한 폴더에서
+
+$ vi art/build/Android.common_build.mk 들어가서
+
+```
+ART_HOST_CLANG := false
+ifneq ($(WITHOUT_HOST_CLANG), false) //  ifneq -> ifeq , true 에서 false로 변경해준다.
+# By default, host builds use clang for better warnings.
+ART_HOST_CLANG := true
+```
+
+6. 빌드하기.
+
+$make -j16
+- j인자는 프로세서수의 두배수가 적당하다고 한다.
+
+7. 에뮬레이터 실행하기
+$ emulator &    // 백그라운드로 실행
+
+> 쉘을 다시 시작할 경우 : $ . build/envsetup.sh, $ lunch 를 다시 실행시켜줘야 한다.
+
+8. adb 실행하기
+$ sudo apt-get install adb 를 실행하여 설치한다.
+- 에뮬레이터가 켜진상태에서
+$ adb shell 를 입력한다.
+
+
+
+- 과제 진행상황
+
+
+<div>
+<img width="100%" src="https://user-images.githubusercontent.com/34255526/60681028-9ad7ea00-9ec8-11e9-9192-1b0299f703b9.png">
+</div>
+
+> 빌드 환경 구축이 완료된 모습
+
+
+<div>
+<img width="100%" src="https://user-images.githubusercontent.com/34255526/60681029-9b708080-9ec8-11e9-8e04-c85e750e688b.png">
+</div>
+
+packagemanagerservice.java
+
+> Package Scanning Log를 확인하기 위해서 위와같이 코드 수정
+
+
+<div>
+<img width="100%" src="https://user-images.githubusercontent.com/34255526/60681030-9b708080-9ec8-11e9-985c-94acb09785e0.JPG">
+</div>
+> Package Scanning 소스코드
+
+<div>
+<img width="100%" src="https://user-images.githubusercontent.com/34255526/60681031-9b708080-9ec8-11e9-8723-68aaab42b68c.png">
+</div>
+> Package Scanning Log 출력 확인
